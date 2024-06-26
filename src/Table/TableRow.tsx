@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {HeaderCellStyled} from "./TableHeader";
-import {ELLIPSIS} from "../styles";
 
 interface ITableRowProps {
 	row: string[];
@@ -9,8 +8,8 @@ interface ITableRowProps {
 export const TableRow = ({row}: ITableRowProps) => {
 	return (
 		<TableRowStyled>
-			{row.map((cell) => {
-				return <TableCellStyled>{cell}</TableCellStyled>;
+			{row.map((cell, index) => {
+				return <TableCellStyled key={`${cell}_${index}`}>{cell}</TableCellStyled>;
 			})}
 		</TableRowStyled>
 	);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {CENTERED, ELLIPSIS} from "../styles";
-import { useState } from "react";
+import {useState} from "react";
 
 interface ITableHeaderProps {
 	headers: string[];
@@ -17,7 +17,7 @@ export const TableHeader = ({headers}: ITableHeaderProps) => {
 			const divBB = div.getBoundingClientRect();
 
 			setPopupContent(headers[index]);
-			setPopupTranslate(`translate(${(divBB.right+divBB.left)/2}px, ${(divBB.top+divBB.bottom)/2 - 20}px)`);
+			setPopupTranslate(`translate(${(divBB.right + divBB.left) / 2}px, ${(divBB.top + divBB.bottom) / 2 - 20}px)`);
 		}
 	};
 
@@ -38,10 +38,7 @@ export const TableHeader = ({headers}: ITableHeaderProps) => {
 					</HeaderCellStyled>
 				);
 			})}
-			{
-				popupContent &&
-					<PopupStyled $translate={popupTranslate}>{popupContent}</PopupStyled>
-			}
+			{popupContent && <PopupStyled $translate={popupTranslate}>{popupContent}</PopupStyled>}
 		</TableHeaderStyled>
 	);
 };
@@ -84,7 +81,7 @@ const PopupStyled = styled.div<{$translate: string}>`
 	left: 0;
 	top: 0;
 	background-color: black;
-	transform: ${props => props.$translate ?? ""};
+	transform: ${(props) => props.$translate ?? ""};
 	border-radius: 4px;
 	width: 200px;
 	height: 40px;
